@@ -1,0 +1,7 @@
+{
+  "name": "R-App-GM-1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
