@@ -19,6 +19,11 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
+  
+  {
+    path: 'tab-inicial',
+    loadChildren: () => import('./main/tab-inicial/tab-inicial.module').then( m => m.TabInicialPageModule)
+  },
 ];
 
 @NgModule({

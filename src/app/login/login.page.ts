@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
           user: this.user // Al estado se asignamos un objeto con clave y valor
         }
       };
-      this.router.navigate(['home'], navigationExtras); // navegamos hacia el Home y enviamos información adicional
+      this.router.navigate(['tab-inicial'], navigationExtras); // navegamos hacia el Home y enviamos información adicional
     } else {
       if(this.field=="Contrasena"){this.presentToast("Debe ingresar: Contraseña.", 4500)}
       else{this.presentToast("Debe ingresar: " + this.field + ".", 4500)}
