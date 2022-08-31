@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>asistencia</ion-title>
+    <ion-title>Bienvenido, user.</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-title size="large">asistencia</ion-title>
+  <ion-card>
+    <ion-card-header class="ion-text-center">
+      <ion-title>Resumen Asistencia</ion-title>
+      <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae? Adipisci?</p>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card  *ngFor="let ramo of ramos; trackBy:trackRamos">
+    <ion-card-header class="class-title">{{ramo.nombre}}</ion-card-header>
+    <div class="ion-text-start">
+    <p class="txt-class">Clases asistidas: {{ramo.clasesAsistidas}}/{{ramo.clasesRealizadas}}</p>
+    <p class="txt-class">Total Asistencia: {{((ramo.clasesAsistidas/ramo.clasesRealizadas)*100)}}%</p>
+  </div>
+  </ion-card>
+
 </ion-content>
