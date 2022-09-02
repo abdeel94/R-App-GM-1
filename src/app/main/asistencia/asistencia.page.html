@@ -16,9 +16,8 @@
   <ion-card *ngFor="let ramo of ramos; trackBy:trackRamos">
     <ion-card-header class="class-title">{{ramo.nombre}}</ion-card-header>
     <div class="ion-text-start">
-      <p class="txt-class">Clases asistidas: {{ramo.clasesAsistidas}}/{{ramo.clasesRealizadas}}</p>
-      
-      <p class="txt-class">Total Asistencia: {{(ramo.clasesAsistidas/ramo.clasesRealizadas) | percent}}</p>
+      <p class="txt-class">Clases asistidas: <span style="color: #F8B31C"><b> {{ramo.clasesAsistidas}}/{{ramo.clasesRealizadas}} </b></span></p>
+      <p class="txt-class">Total Asistencia: <span style="color: #F8B31C"><b> {{(ramo.clasesAsistidas/ramo.clasesRealizadas) | percent}} </b></span></p>
       <!-- <apx-chart
           [series]= " '[' + ramo.clasesAsistidas +','+ ramo.clasesRealizadas + ']' "
           [chart]="chartOptions.chart"

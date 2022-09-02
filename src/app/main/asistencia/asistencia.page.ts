@@ -28,7 +28,8 @@ export class AsistenciaPage implements OnInit {
 
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
-  
+
+  // construccion de clase para pasar variable de ts a html 
   public amarillo : number = null;
   public verde : number = null;
 
@@ -56,7 +57,7 @@ export class AsistenciaPage implements OnInit {
       ]
     };
 
-    // valores de aceptacion de asistencia
+    // valores de aceptacion de asistencia, aca se asigna el valor de la variable que se quiere pasar del ts al html
     this.verde = 0.9;
     this.amarillo = 0.6;
 
