@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AsistenciaPageRoutingModule } from './asistencia-routing.module';
 
 import { AsistenciaPage } from './asistencia.page';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AsistenciaPageRoutingModule
+    AsistenciaPageRoutingModule,
+   NgApexchartsModule
   ],
   declarations: [AsistenciaPage]
 })
