@@ -8,15 +8,15 @@
   <ion-card>
     <ion-card-header class="ion-text-center">
       <ion-title>Resumen Asistencia</ion-title>
-      <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae? Adipisci?</p>
+      <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae? Adipisci? {{curr}}</p>
     </ion-card-header>
   </ion-card>
 
   <ion-card  *ngFor="let ramo of ramos; trackBy:trackRamos">
-    <ion-card-header class="class-title">{{ramo.nombre}}</ion-card-header>
+    <ion-card-header class="class-title">{{ramo.nombre }}</ion-card-header>
     <div class="ion-text-start">
     <p class="txt-class">Clases asistidas: {{ramo.clasesAsistidas}}/{{ramo.clasesRealizadas}}</p>
-    <p class="txt-class">Total Asistencia: {{((ramo.clasesAsistidas/ramo.clasesRealizadas)*100)}}%</p>
+    <p class="txt-class">Total Asistencia: {{(ramo.clasesAsistidas/ramo.clasesRealizadas) | percent}}</p>
   </div>
   </ion-card>
 
