@@ -3,7 +3,29 @@ ion-content{
     --padding-bottom: 20px;
     --padding-end: 20px;
     --padding-start: 20px;
+    
 }
 ion-item{
-    --padding-bottom: 10px;
+    --padding-bottom: 10px; 
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    height:50px;
+    margin: 0 !important; 
 }
+ion-card{
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+ion-avatar{
+    position:fixed;
+    right:0px;
+    top:-10px;
+   
+}
+
+
+
+

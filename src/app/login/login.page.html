@@ -1,16 +1,21 @@
 
-
 <ion-header>
   <ion-toolbar>
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content style="--background: #021c41;">
+  <ion-card-header>
+    <ion-title style=" font-size: 40px; --color:  #ffff;">Duoc UC
+    <ion-avatar>
+      <img src="assets/img/logo_blanco.png"/>
+    </ion-avatar>
+    </ion-title>
+  </ion-card-header>
   <img src="assets/img/vina_duoc.jpg"/>
 </ion-content>
 <ion-content style="--background: #021c41;">
-  <ion-card style="--background: #154360;">
+  <ion-card style="--background:   #0f2f44;">
     <ion-card-header>
       <ion-title>Iniciar Sesion</ion-title>
     </ion-card-header>
@@ -28,7 +33,7 @@
       <ion-row>
         <ion-col>
           <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
-          <ion-button style="--background:  #f1c40f;" expand="full" (click)="ingresar()">Ingresar</ion-button>
+          <ion-button style="--background:  #e4b706;" expand="full" (click)="ingresar()">Ingresar</ion-button>
           <div class="ion-text-center ion-padding-top">
             <a [routerLink]="['/forgot-password']">¿Olvidó la contraseña?</a>
           </div>
