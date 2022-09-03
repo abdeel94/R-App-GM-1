@@ -4,8 +4,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
+<ion-content style="--background: #021c41;">
+  <ion-card style="--background: #154360;">
     <ion-card-header class="ion-text-center">
       <ion-title>Resumen Asistencia</ion-title>
       <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
@@ -13,8 +13,10 @@
     </ion-card-header>
   </ion-card>
 
-  <ion-card *ngFor="let ramo of ramos; trackBy:trackRamos">
+  <ion-card style="--background: #154360;" *ngFor="let ramo of ramos; trackBy:trackRamos">
+
     <ion-card-header class="class-title">{{ramo.nombre}}</ion-card-header>
+
     <div class="ion-text-start">
       <p class="txt-class">Clases asistidas: <span style="color: #F8B31C"><b> {{ramo.clasesAsistidas}}/{{ramo.clasesRealizadas}} </b></span></p>
       <p class="txt-class">Total Asistencia: <span style="color: #F8B31C"><b> {{(ramo.clasesAsistidas/ramo.clasesRealizadas) | percent}} </b></span></p>
