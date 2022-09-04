@@ -6,10 +6,6 @@
 label p{
     margin:0;
 }
-label p:before {
-    content:"Día: "
-    
-}
 .tab-group{
     margin: 3em auto;
     max-width: 503mm;
@@ -27,11 +23,13 @@ label p:before {
 }
 .tab label{
     color:#ffff;
+    background:  #154360;
     display:block;
     font-weight: bolder;
     line-height: 3;
     padding-left: 0.5em;
     margin-bottom: 0.5em;
+
 }
 .tab input:focus + label,
 .tab label:hover{
@@ -51,4 +49,5 @@ label p:before {
 }
 .tab input:checked ~ .tab-content{
     max-height: 20em;
+    background:#154360;
 }
