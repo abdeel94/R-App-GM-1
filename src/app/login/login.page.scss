@@ -12,6 +12,7 @@ ion-item{
     width: 100% !important;
     height:50px;
     margin: 0 !important; 
+    border:1px solid #021c41;
 }
 ion-card{
     display: flex;
@@ -22,7 +23,7 @@ ion-card{
 ion-avatar{
     position:fixed;
     right:0px;
-    top:-10px;
+    top:-20px;
    
 }
 
