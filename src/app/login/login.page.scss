@@ -1,12 +1,11 @@
-ion-content{
-    --padding-top: 20px;
-    --padding-bottom: 20px;
-    --padding-end: 20px;
-    --padding-start: 20px;
+.login-field{
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    
     
 }
 ion-item{
-    --padding-bottom: 10px; 
     display: flex;
     flex-direction: column;
     width: 100% !important;
@@ -25,6 +24,20 @@ ion-avatar{
     right:0px;
     top:-20px;
    
+}
+
+ion-title{
+    font-size: 30px;
+    font-weight: bold;
+    font-size: 36px;
+    color: #ffb800;
+}
+
+ion-button{
+    --background:  #e4b706;
+}
+.content-top{
+    padding-top: 20px;
 }
 
 

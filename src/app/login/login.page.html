@@ -1,45 +1,39 @@
 
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content style="--background: #021c41;">
+
+<ion-content>
+  <div class="content-top">
   <ion-card-header>
-    <ion-title style=" font-size: 30px; --color:  #ffff;">Duoc UC
-    <ion-avatar>
-      <img src="assets/img/logo_blanco.png"/>
-    </ion-avatar>
+    <ion-title>Duoc<span style="color: #FFFFFF">UC</span>
+      <ion-avatar>
+        <img src="assets/img/logo_blanco.png" />
+      </ion-avatar>
     </ion-title>
   </ion-card-header>
-  <img src="assets/img/vina_duoc.jpg"/>
+  <img src="assets/img/vina_duoc.jpg" />
+</div>
 </ion-content>
-<ion-content style="--background: #021c41;">
-  <ion-card style="--background:   #0f2f44;">
-    <ion-card-header>
-      <ion-title style=" font-size: 19px; color:   #ffff;">Iniciar Sesión</ion-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item lines="full">
-        <ion-label position="stacked">Usuario</ion-label>
-        <!-- Usamos ngModel para indicarle al input el objeto a utilizar-->
-        <ion-input type="text" minlength="3" maxlength="8" [(ngModel)]="user.Usuario"></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <!-- Usamos ngModel para indicarle al input el objeto a utilizar-->
-        <ion-label position="stacked">Contraseña</ion-label>
-        <ion-input type="password" minlength="4" maxlength="4" [(ngModel)]="user.Contrasena"></ion-input>
-      </ion-item>
-      <ion-row>
-        <ion-col>
-          <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
-          <ion-button style="--background:  #e4b706;" expand="full" (click)="ingresar()">Ingresar</ion-button>
-          <div class="ion-text-center ion-padding-top">
-            <a [routerLink]="['/forgot-password']">¿Olvidó la contraseña?</a>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
-  
+
+
+<ion-content>
+
+  <div class="login-field">
+  <ion-item lines="full">
+    <ion-label position="stacked">Usuario</ion-label>
+    <ion-input type="text" minlength="3" maxlength="8" [(ngModel)]="user.Usuario"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="stacked">Contraseña</ion-label>
+    <ion-input type="password" minlength="4" maxlength="4" [(ngModel)]="user.Contrasena"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-button expand="full" (click)="ingresar()">Ingresar</ion-button>
+      <div class="ion-text-center ion-padding-top">
+        <a [routerLink]="['/forgot-password']">¿Olvidó la contraseña?</a>
+      </div>
+    </ion-col>
+  </ion-row>
+
+</div>
+
 </ion-content>
