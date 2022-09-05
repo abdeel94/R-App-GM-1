@@ -1,19 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Bienvenido, user.</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content style="--background: #021c41;">
-  <ion-card style="--background: #154360;">
+<ion-content >
+  <ion-card  #slidingCard #button>
     <ion-card-header class="ion-text-center">
-      <ion-title style="--color: #ffff;">Resumen Asistencia</ion-title>
+      <ion-title>Resumen Asistencia</ion-title>
       <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
         Adipisci?</p>
     </ion-card-header>
   </ion-card>
 
-  <ion-card style="--background: #154360;" *ngFor="let ramo of ramos; trackBy:trackRamos">
+  <ion-card *ngFor="let ramo of ramos; trackBy:trackRamos" >
 
     <ion-card-header class="class-title">{{ramo.nombre}}</ion-card-header>
 
@@ -46,5 +41,7 @@
      </div>
     </div>
   </ion-card>
+
+  <!-- <ion-button #button>Lovely Button</ion-button> -->
 
 </ion-content>

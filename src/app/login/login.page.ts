@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { ToastController } from '@ionic/angular';
-
+import { ToastController,NavController, NavParams, AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  providers: [NavParams]
 })
+
+
 export class LoginPage implements OnInit {
   /**
    * Se genera el modelo user con dos claves
