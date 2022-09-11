@@ -123,7 +123,7 @@ export class AsistenciaPage implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.pulseButton()
+    // this.pulseButton()
     // this.animateButton();
     this.slideCard();
 
@@ -142,20 +142,20 @@ export class AsistenciaPage implements OnInit {
   //   animation.play()
   // }
 
-  public pulseButton() {
-    const animation = this.animationCtrl
-      .create()
-      .addElement(this.button.nativeElement)
-      .duration(1500)
-      .iterations(Infinity)
-      .keyframes([
-        { offset: 0, boxShadow: "0 0 0 0 rgba(44, 103, 255, 0.4)" },
-        { offset: 0.7, boxShadow: "0 0 0 10px rgba(44, 103, 255, 0)" },
-        { offset: 1, boxShadow: "0 0 0 0 rgba(44, 103, 255, 0)" }
-      ]);
+  // public pulseButton() {
+  //   const animation = this.animationCtrl
+  //     .create()
+  //     .addElement(this.button.nativeElement)
+  //     .duration(1500)
+  //     .iterations(Infinity)
+  //     .keyframes([
+  //       { offset: 0, boxShadow: "0 0 0 0 rgba(44, 103, 255, 0.4)" },
+  //       { offset: 0.7, boxShadow: "0 0 0 10px rgba(44, 103, 255, 0)" },
+  //       { offset: 1, boxShadow: "0 0 0 0 rgba(44, 103, 255, 0)" }
+  //     ]);
 
-    animation.play();
-  }
+  //   // animation.play();
+  // }
 
   public slideCard() {
 

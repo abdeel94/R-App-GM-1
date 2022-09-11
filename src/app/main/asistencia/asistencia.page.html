@@ -1,10 +1,16 @@
 
-<ion-content >
-  <ion-card  #slidingCard #button>
+<ion-content   #slidingCard>
+  <ion-card>
     <ion-card-header class="ion-text-center">
-      <ion-title>Resumen Asistencia</ion-title>
+      <h3>Resumen Asistencia</h3>
       <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
         Adipisci?</p>
+        <!-- <apx-chart
+          [series]= "[60,40]"
+          [chart]="chartOptions.chart"
+          [labels]="chartOptions.labels"
+          [responsive]="chartOptions.responsive"
+        ></apx-chart> -->
     </ion-card-header>
   </ion-card>
 
@@ -15,12 +21,7 @@
     <div class="ion-text-start">
       <p class="txt-class">Clases asistidas: <span style="color: #F8B31C"><b> {{ramo.clasesAsistidas}}/{{ramo.clasesRealizadas}} </b></span></p>
       <p class="txt-class">Total Asistencia: <span style="color: #F8B31C"><b> {{(ramo.clasesAsistidas/ramo.clasesRealizadas) | percent}} </b></span></p>
-      <!-- <apx-chart
-          [series]= " '[' + ramo.clasesAsistidas +','+ ramo.clasesRealizadas + ']' "
-          [chart]="chartOptions.chart"
-          [labels]="chartOptions.labels"
-          [responsive]="chartOptions.responsive"
-        ></apx-chart> -->
+      
 
       <!-- Default Progressbar with 50 percent -->
 
