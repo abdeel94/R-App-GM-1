@@ -163,7 +163,7 @@ export class AsistenciaPage implements OnInit {
       
       .create()
       .addElement(this.slidingCard.nativeElement)
-      .duration(900)
+      .duration(750)
       .iterations(1)
       .fromTo('transform', 'translateX(200px)', 'translateX(0px)')
       .fromTo('opacity', '0', '1');

@@ -1,48 +1,51 @@
-
-<ion-content   #slidingCard>
-  <ion-card>
-    <ion-card-header class="ion-text-center">
-      <h3>Resumen Asistencia</h3>
-      <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
-        Adipisci?</p>
+<ion-content>
+  <div #slidingCard>
+    <ion-card>
+      <ion-card-header class="ion-text-center">
+        <h3>Resumen Asistencia</h3>
+        <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
+          Adipisci?</p>
         <!-- <apx-chart
           [series]= "[60,40]"
           [chart]="chartOptions.chart"
           [labels]="chartOptions.labels"
           [responsive]="chartOptions.responsive"
         ></apx-chart> -->
-    </ion-card-header>
-  </ion-card>
+      </ion-card-header>
+    </ion-card>
 
-  <ion-card *ngFor="let ramo of ramos; trackBy:trackRamos" >
+    <ion-card *ngFor="let ramo of ramos; trackBy:trackRamos">
 
-    <ion-card-header class="class-title">{{ramo.nombre}}</ion-card-header>
+      <ion-card-header class="class-title">{{ramo.nombre}}</ion-card-header>
 
-    <div class="ion-text-start">
-      <p class="txt-class">Clases asistidas: <span style="color: #F8B31C"><b> {{ramo.clasesAsistidas}}/{{ramo.clasesRealizadas}} </b></span></p>
-      <p class="txt-class">Total Asistencia: <span style="color: #F8B31C"><b> {{(ramo.clasesAsistidas/ramo.clasesRealizadas) | percent}} </b></span></p>
-      
+      <div class="ion-text-start">
+        <p class="txt-class">Clases asistidas: <span style="color: #F8B31C"><b>
+              {{ramo.clasesAsistidas}}/{{ramo.clasesRealizadas}} </b></span></p>
+        <p class="txt-class">Total Asistencia: <span style="color: #F8B31C"><b>
+              {{(ramo.clasesAsistidas/ramo.clasesRealizadas) | percent}} </b></span></p>
 
-      <!-- Default Progressbar with 50 percent -->
 
-      <!-- revisar valores de rangos en ts -->
+        <!-- Default Progressbar with 50 percent -->
 
-      <div *ngIf="((ramo.clasesAsistidas/ramo.clasesRealizadas) >= amarillo) && ((ramo.clasesAsistidas/ramo.clasesRealizadas) < verde)">
-      <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="warning"></ion-progress-bar>
-      <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="warning"></ion-progress-bar>
-     </div>
+        <!-- revisar valores de rangos en ts -->
 
-     <div *ngIf="(ramo.clasesAsistidas/ramo.clasesRealizadas)>= verde">
-      <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="success"></ion-progress-bar>
-      <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="success"></ion-progress-bar>
-     </div>
-     <div *ngIf="(ramo.clasesAsistidas/ramo.clasesRealizadas)< amarillo">
-      <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="danger"></ion-progress-bar>
-      <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="danger"></ion-progress-bar>
-     </div>
-    </div>
-  </ion-card>
+        <div
+          *ngIf="((ramo.clasesAsistidas/ramo.clasesRealizadas) >= amarillo) && ((ramo.clasesAsistidas/ramo.clasesRealizadas) < verde)">
+          <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="warning"></ion-progress-bar>
+          <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="warning"></ion-progress-bar>
+        </div>
 
-  <!-- <ion-button #button>Lovely Button</ion-button> -->
+        <div *ngIf="(ramo.clasesAsistidas/ramo.clasesRealizadas)>= verde">
+          <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="success"></ion-progress-bar>
+          <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="success"></ion-progress-bar>
+        </div>
+        <div *ngIf="(ramo.clasesAsistidas/ramo.clasesRealizadas)< amarillo">
+          <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="danger"></ion-progress-bar>
+          <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="danger"></ion-progress-bar>
+        </div>
+      </div>
+    </ion-card>
 
+    <!-- <ion-button #button>Lovely Button</ion-button> -->
+  </div>
 </ion-content>

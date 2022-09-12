@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-tab-inicial',
   templateUrl: './tab-inicial.page.html',
