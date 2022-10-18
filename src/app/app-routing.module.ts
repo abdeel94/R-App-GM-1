@@ -24,6 +24,11 @@ const routes: Routes = [
     path: 'tab-inicial',
     loadChildren: () => import('./main/tab-inicial/tab-inicial.module').then( m => m.TabInicialPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./main/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
+  
 ];
 
 @NgModule({
