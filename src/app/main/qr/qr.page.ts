@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit, ElementRef, AfterViewInit } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Animation, AnimationController } from '@ionic/angular';
+// import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-qr',
@@ -12,9 +13,9 @@ export class QrPage implements OnInit {
 
   @ViewChild("slidingCard", { read: ElementRef, static: true }) slidingCard: ElementRef;
 
-  
-
-  constructor(private animationCtrl: AnimationController) { }
+  constructor(private animationCtrl: AnimationController,
+    //  private barcodeScanner: BarcodeScanner
+     ) { }
 
   ngOnInit() {
   }
@@ -37,5 +38,12 @@ export class QrPage implements OnInit {
     animationA.play();
   }
 
+  // barcode(){
+  // this.barcodeScanner.scan().then(barcodeData => {
+  //   console.log('Barcode data', barcodeData);
+  //  }).catch(err => {
+  //      console.log('Error', err);
+  //  });
+  // }
 
 }

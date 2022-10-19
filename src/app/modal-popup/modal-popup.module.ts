@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { QrPageRoutingModule } from './qr-routing.module';
+import { ModalPopupPageRoutingModule } from './modal-popup-routing.module';
 
-import { QrPage } from './qr.page';
-
+import { ModalPopupPage } from './modal-popup.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QrPageRoutingModule
+    ModalPopupPageRoutingModule
   ],
-  declarations: [QrPage]
+  declarations: [ModalPopupPage]
 })
-export class QrPageModule {}
+export class ModalPopupPageModule {}
