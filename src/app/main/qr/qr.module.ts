@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { QrPageRoutingModule } from './qr-routing.module';
 
 import { QrPage } from './qr.page';
+import { BarcodeScanner }from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
 
 @NgModule({
@@ -14,8 +15,9 @@ import { QrPage } from './qr.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    QrPageRoutingModule
+    QrPageRoutingModule,
   ],
+  providers:[BarcodeScanner,],
   declarations: [QrPage]
 })
 export class QrPageModule {}
