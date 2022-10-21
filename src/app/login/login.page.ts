@@ -1,6 +1,7 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { ToastController,NavController, NavParams, AlertController} from '@ionic/angular';
+import { ToastController, NavController, NavParams, AlertController } from '@ionic/angular';
+import { ApijsonService } from 'src/app/services/apijson.service'
 
 @Component({
   selector: 'app-login',
@@ -20,28 +21,80 @@ export class LoginPage implements OnInit {
     Contrasena: "",
   }
 
+  alumno: any;
 
   field: String = "";//para guardar si encuentro un campo vacio
-  constructor(private router: Router, public toastController: ToastController) { } // Se debe instanciar
+
+  constructor(private router: Router,
+    private api: ApijsonService,
+    public toastController: ToastController,
+  ) { } // Se debe instanciar
 
   ngOnInit() {
   }
+
   ingresar() {
     //verifico campos vacíos
     if (this.validateModel(this.user)) {
       this.presentToast("Bienvenido " + this.user.Usuario);
       // Se declara e instancia un elemento de tipo NavigationExtras
       let navigationExtras: NavigationExtras = {
+        ///// modificar desde ahi
         state: {
           user: this.user // Al estado se asignamos un objeto con clave y valor
         }
       };
       this.router.navigate(['tab-inicial'], navigationExtras); // navegamos hacia el Home y enviamos información adicional
     } else {
-      if(this.field=="Contrasena"){this.presentToast("Debe ingresar: Contraseña.", 4500)}
-      else{this.presentToast("Debe ingresar: " + this.field + ".", 4500)}
+      if (this.field == "Contrasena") { this.presentToast("Debe ingresar: Contraseña.", 4500) }
+      else { this.presentToast("Debe ingresar: " + this.field + ".", 4500) }
     }
 
+
+  }
+
+  nombre: any;
+
+  guardar() {
+    if (this.validateModel(this.user)) {
+      let navigationExtras: NavigationExtras = {
+        state: { User: this.user }
+      };
+
+      for (let i = 1; i < this.alumno.length; i++) {
+
+        if (this.user.Usuario == this.alumno[i].username) {
+          this.nombre = this.alumno[i].nombre;
+          if (this.user.Contrasena == this.alumno[i].password) {
+            var nombreUsuario={nombre: this.nombre}
+            console.log("Validado el Usuario");
+            localStorage.setItem('ingresado', 'true')
+            localStorage.setItem('nombreUsuario',JSON.stringify(nombreUsuario))
+            this.router.navigate(['tab-inicial'], navigationExtras);
+            localStorage.setItem('ingresado', 'true')
+
+          } 
+        }
+      }
+    } else {
+      this.presentToast('Error')
+    }
+  }
+
+
+
+  ionViewWillEnter(){
+    this.getAlumnos();
+  }
+
+  getAlumnos(){
+    this.api.getAlumnos().subscribe((data)=>{
+      let val = Object.values(data)
+      let val2 = Object.values(val[0])
+
+      this.alumno = val2;
+
+    })
 
   }
 
@@ -49,6 +102,7 @@ export class LoginPage implements OnInit {
  * validateModel sirve para validar que se ingrese algo en 
  * los campos del html mediante su modelo
  */
+
   validateModel(model: any) {
     //Recorrer todas las entradas que me entrega el Object entries y obtengo su clave-valor
     for (var [key, value] of Object.entries(model)) {
@@ -60,6 +114,7 @@ export class LoginPage implements OnInit {
     }
     return true;
   }
+
   async presentToast(msg: string, duracion?: number) {
     const toast = await this.toastController.create({
       message: msg,
@@ -67,5 +122,13 @@ export class LoginPage implements OnInit {
     });
     toast.present();
   }
+
+
+
+
+
+
+
+
 
 }

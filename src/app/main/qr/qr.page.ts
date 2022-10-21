@@ -14,7 +14,8 @@ export class QrPage implements OnInit {
   @ViewChild("slidingCard", { read: ElementRef, static: true }) slidingCard: ElementRef;
 
   constructor(private animationCtrl: AnimationController,
-  private barcodeScanner: BarcodeScanner
+  private barcodeScanner: BarcodeScanner,
+  private router: Router,
      ) { }
 
   ngOnInit() {
@@ -44,6 +45,12 @@ export class QrPage implements OnInit {
    }).catch(err => {
        console.log('Error', err);
    });
+  }
+
+  salir(){
+    localStorage.removeItem('ingresado')
+    this.router.navigate(['/login'])
+    
   }
 
 }
