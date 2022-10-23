@@ -31,6 +31,7 @@ export class LoginPage implements OnInit {
   ) { } // Se debe instanciar
 
   ngOnInit() {
+    localStorage.setItem('ingresado', 'false'); // esto es para evitar que se pueda entrar con el back de android
   }
 
   ingresar() {
@@ -87,6 +88,7 @@ export class LoginPage implements OnInit {
   }
 
   getAlumnos(){
+    // localStorage.setItem('ingresado', 'false')
     this.api.getAlumnos().subscribe((data)=>{
       let val = Object.values(data)
       let val2 = Object.values(val[0])
