@@ -33,11 +33,6 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./main/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
-  // {
-  //   path: 'modal-popup',
-  //   loadChildren: () => import('./modal-popup/modal-popup.module').then( m => m.ModalPopupPageModule)
-  // },
-
   
 ];
 

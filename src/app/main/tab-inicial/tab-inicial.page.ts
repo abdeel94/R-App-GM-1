@@ -9,26 +9,28 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TabInicialPage {
   user: any;
-  user2: any;
+  dataName: any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) { this.activeroute.queryParams.subscribe(params => {
+  constructor(private activeroute: ActivatedRoute, private router: Router) {
+    this.activeroute.queryParams.subscribe(params => {
 
-    if (this.router.getCurrentNavigation().extras.state) {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.user = this.router.getCurrentNavigation().extras.state.user;
+        console.log(this.user)
+      }
+    })
+  }
 
-      this.user = this.router.getCurrentNavigation().extras.state.user;
-      console.log(this.user)
-    }})
-}
 
+  recuperarNombre() {
+    var user1 = JSON.parse(localStorage.getItem('nombreUsuario'));
+    this.dataName = user1.nombre;
+    this.dataName = this.dataName.toLowerCase();
+    this.dataName = this.dataName.split(" ")[0];
+  }
 
-recuperarNombre(){
-  var user1 = JSON.parse(localStorage.getItem('nombreUsuario'));
-  this.user2 = user1.nombre;
-  return this.user2;
-}
-
-ngOnInit(){
-  this.recuperarNombre();
-}
+  ngOnInit() {
+    this.recuperarNombre();
+  }
 
 }

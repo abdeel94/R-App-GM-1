@@ -1,31 +1,48 @@
-
-
 <ion-content>
   <div #slidingCard>
-  <ion-card>
-    <ion-card-header class="ion-text-center">
-      <ion-title>Registrar Asistencia</ion-title>
-    </ion-card-header>
+    <ion-card>
+      <div class="ion-padding-horizontal ion-padding-bottom">
+        <ion-card-header class="ion-text-center">
+          <h1>Registrar Asistencia</h1>
+        </ion-card-header>
 
-    <div class="ion-text-center">
-  
-      <ion-button class="btn" color="warning" size="large" (click)="barCode()" fill="solid" shape="">
-        <ion-icon name="camera-outline">Abrir cámara</ion-icon>
-      </ion-button>
- 
-    </div>
-    <p class="ion-text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis accusamus quo est
-      eaque? Fugit labore quam aperiam, aliquid autem quis a rerum provident pariatur commodi!</p>
+        <div class="ion-text-center">
 
+          <ion-button class="btn" color="warning" size="large" (click)="barCode()" fill="solid" shape="">
+            <ion-icon name="camera-outline">Abrir cámara</ion-icon>
+          </ion-button>
 
-  </ion-card>
-</div>
-<div class="ion-text-center"><ion-button color="warning" size="large" href="random" fill="solid">
-  Error 404
-</ion-button></div>
+        </div>
+        <p class="ion-text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis accusamus quo est
+          eaque? Fugit labore quam aperiam, aliquid autem quis a rerum provident pariatur commodi!</p>
+      </div>
+    </ion-card>
 
-<div class="ion-text-center"><ion-button (click)="salir()" color="warning" size="large" fill="solid">
-  Logout
-</ion-button></div>
+    <ion-card *ngIf="(data != null)">
+      <div class="ion-padding-horizontal ion-padding-bottom">
+        <div class="ion-text-center">
+          <h1>Datos Scanneados</h1>
+        </div>
+        <div class="ion-text-left">
+          <p>Información QR: </p>
+
+          <a *ngIf="data.includes('http')" [href]="data">{{ data }}</a>
+          <p *ngIf="!data.includes('http')">{{ data }}</p>
+        </div>
+      </div>
+    </ion-card>
+
+  </div>
+  <div class="ion-text-center">
+    <ion-button color="warning" size="large" href="random" fill="solid">
+      Error 404
+    </ion-button>
+  </div>
+
+  <div class="ion-text-center">
+    <ion-button (click)="salir()" color="warning" size="large" fill="solid">
+      Salir
+    </ion-button>
+  </div>
 
 </ion-content>

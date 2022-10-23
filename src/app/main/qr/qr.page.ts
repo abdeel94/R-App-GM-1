@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit, ElementRef, AfterViewInit } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Animation, AnimationController } from '@ionic/angular';
-import { BarcodeScanner }from '@awesome-cordova-plugins/barcode-scanner/ngx';
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-qr',
@@ -14,9 +14,9 @@ export class QrPage implements OnInit {
   @ViewChild("slidingCard", { read: ElementRef, static: true }) slidingCard: ElementRef;
 
   constructor(private animationCtrl: AnimationController,
-  private barcodeScanner: BarcodeScanner,
-  private router: Router,
-     ) { }
+    private barcodeScanner: BarcodeScanner,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
@@ -29,7 +29,8 @@ export class QrPage implements OnInit {
   public slideCard() {
 
     const animationA = this.animationCtrl
-      
+
+
       .create()
       .addElement(this.slidingCard.nativeElement)
       .duration(750)
@@ -39,18 +40,20 @@ export class QrPage implements OnInit {
     animationA.play();
   }
 
-  barCode(){
-  this.barcodeScanner.scan().then(barcodeData => {
-    console.log('Barcode data', barcodeData);
-   }).catch(err => {
-       console.log('Error', err);
-   });
+  data: any;
+
+  barCode() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+      this.data = barcodeData.text;
+    }).catch(err => {
+      console.log('Error', err);
+    });
   }
 
-  salir(){
+  salir() {
     localStorage.removeItem('ingresado')
     this.router.navigate(['/login'])
-    
   }
 
 }

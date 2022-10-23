@@ -67,7 +67,6 @@ export class LoginPage implements OnInit {
           this.nombre = this.alumno[i].nombre;
           if (this.user.Contrasena == this.alumno[i].password) {
             var nombreUsuario={nombre: this.nombre}
-            console.log("Validado el Usuario");
             localStorage.setItem('ingresado', 'true')
             localStorage.setItem('nombreUsuario',JSON.stringify(nombreUsuario))
             this.router.navigate(['tab-inicial'], navigationExtras);
