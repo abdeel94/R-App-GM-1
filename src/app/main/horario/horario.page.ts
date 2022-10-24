@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { Animation, AnimationController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-horario',
   templateUrl: './horario.page.html',

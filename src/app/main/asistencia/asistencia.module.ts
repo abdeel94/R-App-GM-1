@@ -8,6 +8,7 @@ import { AsistenciaPageRoutingModule } from './asistencia-routing.module';
 
 import { AsistenciaPage } from './asistencia.page';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { UserDataComponent } from 'src/app/components/user-data/user-data.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NgApexchartsModule } from "ng-apexcharts";
     AsistenciaPageRoutingModule,
    NgApexchartsModule
   ],
-  declarations: [AsistenciaPage]
+  declarations: [AsistenciaPage, UserDataComponent]
 })
 export class AsistenciaPageModule {}

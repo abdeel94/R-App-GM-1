@@ -8,6 +8,8 @@ import { HorarioPageRoutingModule } from './horario-routing.module';
 
 import { HorarioPage } from './horario.page';
 
+import { UserDataComponent } from 'src/app/components/user-data/user-data.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { HorarioPage } from './horario.page';
     IonicModule,
     HorarioPageRoutingModule
   ],
-  declarations: [HorarioPage]
+  declarations: [HorarioPage, UserDataComponent]
 })
 export class HorarioPageModule {}
