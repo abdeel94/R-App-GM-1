@@ -6,8 +6,7 @@ import { NoentradaGuard } from './noentrada.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [GuardappGuard,]
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
 
   },
   {
@@ -18,7 +17,8 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    canActivate: [NoentradaGuard,]
+    canActivate: [NoentradaGuard,],
+    // canActivate: [GuardappGuard,],
   },
   {
     path: 'forgot-password',
@@ -27,7 +27,9 @@ const routes: Routes = [
   
   {
     path: 'tab-inicial',
-    loadChildren: () => import('./main/tab-inicial/tab-inicial.module').then( m => m.TabInicialPageModule)
+    loadChildren: () => import('./main/tab-inicial/tab-inicial.module').then( m => m.TabInicialPageModule),
+    canActivate: [GuardappGuard,],
+    // canActivate: [NoentradaGuard,],
   },
   {
     path: '**',

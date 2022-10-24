@@ -52,6 +52,7 @@ export class QrPage implements OnInit {
   }
 
   salir() {
+    localStorage.setItem('ingresado','false')
     localStorage.removeItem('ingresado')
     this.router.navigate(['/login'])
   }

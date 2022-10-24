@@ -12,9 +12,9 @@ export class NoentradaGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-    if (localStorage.getItem('ingresado')) {
-      this.router.navigate(['/home']);
+    // return true;
+    if(localStorage.getItem('ingresado')) {
+      this.router.navigate(['/tab-inicial']);
       return false;
     } else {
       return true;
