@@ -34,27 +34,28 @@ export class LoginPage implements OnInit {
     localStorage.removeItem('ingresado'); // esto es para evitar que se pueda entrar con el back de android
   }
 
-  ingresar() {
-    //verifico campos vacíos
-    if (this.validateModel(this.user)) {
-      this.presentToast("Bienvenido " + this.user.Usuario);
-      // Se declara e instancia un elemento de tipo NavigationExtras
-      let navigationExtras: NavigationExtras = {
-        ///// modificar desde ahi
-        state: {
-          user: this.user // Al estado se asignamos un objeto con clave y valor
-        }
-      };
-      this.router.navigate(['tab-inicial'], navigationExtras); // navegamos hacia el Home y enviamos información adicional
-    } else {
-      if (this.field == "Contrasena") { this.presentToast("Debe ingresar: Contraseña.", 4500) }
-      else { this.presentToast("Debe ingresar: " + this.field + ".", 4500) }
-    }
+  // ingresar() {
+  //   //verifico campos vacíos
+  //   if (this.validateModel(this.user)) {
+  //     this.presentToast("Bienvenido " + this.user.Usuario);
+  //     // Se declara e instancia un elemento de tipo NavigationExtras
+  //     let navigationExtras: NavigationExtras = {
+  //       ///// modificar desde ahi
+  //       state: {
+  //         user: this.user // Al estado se asignamos un objeto con clave y valor
+  //       }
+  //     };
+  //     this.router.navigate(['tab-inicial'], navigationExtras); // navegamos hacia el Home y enviamos información adicional
+  //   } else {
+  //     if (this.field == "Contrasena") { this.presentToast("Debe ingresar: Contraseña.", 1200) }
+  //     else { this.presentToast("Debe ingresar: " + this.field + ".", 1200) }
+  //   }
 
 
-  }
+  // }
 
   nombre: any;
+  id: any;
 
   guardar() {
     if (this.validateModel(this.user)) {
@@ -66,30 +67,34 @@ export class LoginPage implements OnInit {
 
         if (this.user.Usuario == this.alumno[i].username) {
           this.nombre = this.alumno[i].nombre;
+          this.id = this.alumno[i].id;
           if (this.user.Contrasena == this.alumno[i].password) {
-            var nombreUsuario={nombre: this.nombre}
+            var nombreUsuario = { nombre: this.nombre }
+            var idUsuario = { id: this.id }
             localStorage.setItem('ingresado', 'true')
-            localStorage.setItem('nombreUsuario',JSON.stringify(nombreUsuario))
+            localStorage.setItem('nombreUsuario', JSON.stringify(nombreUsuario))
+            localStorage.setItem('idUsuario', JSON.stringify(idUsuario))
             this.router.navigate(['tab-inicial'], navigationExtras);
-            localStorage.setItem('ingresado', 'true')
 
-          } 
+          }else{
+            this.presentToast("Contraseña incorrecta.", 1200)
+          }
         }
       }
     } else {
-      this.presentToast('Error')
+      if (this.field == "Contrasena") { this.presentToast("Debe ingresar: Contraseña.", 1200) }
+      else { this.presentToast("Debe ingresar: " + this.field + ".", 1200) }
     }
   }
 
 
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.getAlumnos();
   }
 
-  getAlumnos(){
-    // localStorage.setItem('ingresado', 'false')
-    this.api.getAlumnos().subscribe((data)=>{
+  getAlumnos() {
+    this.api.getAlumnos().subscribe((data) => {
       let val = Object.values(data)
       let val2 = Object.values(val[0])
 
@@ -99,10 +104,6 @@ export class LoginPage implements OnInit {
 
   }
 
-  /**
- * validateModel sirve para validar que se ingrese algo en 
- * los campos del html mediante su modelo
- */
 
   validateModel(model: any) {
     //Recorrer todas las entradas que me entrega el Object entries y obtengo su clave-valor
@@ -119,7 +120,7 @@ export class LoginPage implements OnInit {
   async presentToast(msg: string, duracion?: number) {
     const toast = await this.toastController.create({
       message: msg,
-      duration: duracion ? duracion : 2000
+      duration: duracion?duracion:1500,
     });
     toast.present();
   }
