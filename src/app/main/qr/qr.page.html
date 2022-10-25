@@ -18,7 +18,9 @@
       </div>
     </ion-card>
 
-    <ion-card *ngIf="(data != null)">
+
+    <div  *ngIf="(data != null)">
+    <ion-card *ngIf="(data != &quot;&quot;)">
       <div class="ion-padding-horizontal ion-padding-bottom">
         <div class="ion-text-center">
           <h1>Datos Scanneados</h1>
@@ -31,8 +33,9 @@
         </div>
       </div>
     </ion-card>
-
   </div>
+  </div>
+
   <div class="ion-text-center">
     <ion-button color="warning" size="large" href="random" fill="solid">
       Error 404

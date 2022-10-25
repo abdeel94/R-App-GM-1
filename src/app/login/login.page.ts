@@ -31,6 +31,7 @@ export class LoginPage implements OnInit {
   ) { } // Se debe instanciar
 
   ngOnInit() {
+    localStorage.setItem('ingresado','false');
     localStorage.removeItem('ingresado'); // esto es para evitar que se pueda entrar con el back de android
   }
 
@@ -76,7 +77,7 @@ export class LoginPage implements OnInit {
             localStorage.setItem('idUsuario', JSON.stringify(idUsuario))
             this.router.navigate(['tab-inicial'], navigationExtras);
 
-          }else{
+          } else {
             this.presentToast("Contraseña incorrecta.", 1200)
           }
         }
@@ -120,7 +121,7 @@ export class LoginPage implements OnInit {
   async presentToast(msg: string, duracion?: number) {
     const toast = await this.toastController.create({
       message: msg,
-      duration: duracion?duracion:1500,
+      duration: duracion ? duracion : 1500,
     });
     toast.present();
   }
