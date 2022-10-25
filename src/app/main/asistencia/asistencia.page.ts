@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit, ElementRef, AfterViewInit } from '@angula
 import { formatPercent } from '@angular/common';
 import { ChartComponent } from "ng-apexcharts";
 import { Animation, AnimationController } from '@ionic/angular';
+import { DbserviceService } from 'src/app/services/dbservice.service';
 
 import {
   ApexNonAxisChartSeries,
@@ -11,6 +12,7 @@ import {
 import { thomsonCrossSectionDependencies } from 'mathjs';
 import { element } from 'protractor';
 import * as ApexCharts from 'apexcharts';
+import { Asistencia } from 'src/app/clases/asistencia';
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -39,8 +41,8 @@ export class AsistenciaPage implements OnInit {
   public verde: number = null;
 
 
-
-  constructor(private animationCtrl: AnimationController) {
+  asistencias: Asistencia[];
+  constructor(private animationCtrl: AnimationController,private servicioBD:DbserviceService,) {
 
 
 
@@ -79,6 +81,13 @@ export class AsistenciaPage implements OnInit {
 
 
   ngOnInit() {
+    this.servicioBD.dbState().subscribe((res)=>{
+      if(res){
+        this.servicioBD.fetchAsistencias().subscribe(item=>{
+          this.asistencias=item;
+        })
+      }
+    })
 
   }
 

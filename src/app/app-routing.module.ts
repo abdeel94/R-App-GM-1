@@ -17,9 +17,7 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    canActivate: [NoentradaGuard,],
-    // canActivate: [GuardappGuard,],
-  },
+    canActivate: [NoentradaGuard,],  },
   {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
@@ -28,9 +26,7 @@ const routes: Routes = [
   {
     path: 'tab-inicial',
     loadChildren: () => import('./main/tab-inicial/tab-inicial.module').then( m => m.TabInicialPageModule),
-    canActivate: [GuardappGuard,],
-    // canActivate: [NoentradaGuard,],
-  },
+    canActivate: [GuardappGuard,],  },
   {
     path: '**',
     loadChildren: () => import('./main/not-found/not-found.module').then( m => m.NotFoundPageModule)

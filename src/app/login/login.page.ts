@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     localStorage.setItem('ingresado','false');
-    localStorage.removeItem('ingresado'); // esto es para evitar que se pueda entrar con el back de android
+    // localStorage.removeItem('ingresado'); // esto es para evitar que se pueda entrar con el back de android
   }
 
   // ingresar() {

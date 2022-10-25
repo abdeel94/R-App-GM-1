@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Animation, AnimationController } from '@ionic/angular';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+import { DbserviceService } from 'src/app/services/dbservice.service';
+import { Asistencia } from 'src/app/clases/asistencia';
 
 @Component({
   selector: 'app-qr',
@@ -11,15 +13,26 @@ import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 })
 export class QrPage implements OnInit {
 
+  asistencias: Asistencia[];
+
   @ViewChild("slidingCard", { read: ElementRef, static: true }) slidingCard: ElementRef;
 
   constructor(private animationCtrl: AnimationController,
     private barcodeScanner: BarcodeScanner,
     private router: Router,
+    private dbservice: DbserviceService,
+    
   ) { }
 
   ngOnInit() {
+    this.recuperaridAlumno();
+    this.fechaActual = new Date();
+    this.fechaActual = this.fechaActual.toLocaleDateString();
   }
+
+  fechaActual: any;
+  idAlumno: any;
+  ramo: any;
 
   ngAfterViewInit() {
     this.slideCard();
@@ -46,6 +59,8 @@ export class QrPage implements OnInit {
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
       this.data = barcodeData.text;
+      this.ramo = barcodeData.text;
+      this.guardar();
     }).catch(err => {
       console.log('Error', err);
     });
@@ -55,6 +70,15 @@ export class QrPage implements OnInit {
     localStorage.setItem('ingresado','false')
     localStorage.removeItem('ingresado')
     this.router.navigate(['/login'])
+  }
+
+  guardar(){
+    this.dbservice.addAsistencia(this.idAlumno,this.ramo,this.fechaActual);
+    this.dbservice.presentToast("Asistencia Agregada")  }
+
+  recuperaridAlumno() {
+    var id = JSON.parse(localStorage.getItem('idUsuario'));
+    this.idAlumno = id.id;
   }
 
 }

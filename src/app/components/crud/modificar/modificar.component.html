@@ -1,0 +1,30 @@
+<ion-card>
+  <div class="ion-padding-horizontal ion-padding-bottom">
+  <h3 class="ion-text-center">Modificar Asistencia</h3>
+
+
+<ion-card-content>
+
+  <ion-item>
+    <ion-label position="floating">id</ion-label>
+    <ion-input type="text" [(ngModel)]="id"></ion-input>
+</ion-item>
+    <ion-item>
+        <ion-label position="floating">idAlumno</ion-label>
+        <ion-input type="text" [(ngModel)]="idAlumno"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Ramo</ion-label>
+        <ion-input type="text" [(ngModel)]="ramo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-input type="text" [(ngModel)]="fecha"></ion-input>
+  </ion-item>
+</ion-card-content>
+<ion-button shape="block" (click)="editar()">Guardar Asistencia</ion-button>
+
+</div>
+</ion-card>

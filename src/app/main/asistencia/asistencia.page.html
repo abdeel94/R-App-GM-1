@@ -2,20 +2,14 @@
   <div #slidingCard>
     <ion-card>
       <ion-card-header class="ion-text-center">
-        <h3>Resumen Asistencia</h3>
-        <user-data></user-data>
+        <h3>Control de asistencia</h3>
         <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
           Adipisci?</p>
-        <!-- <apx-chart
-          [series]= "[60,40]"
-          [chart]="chartOptions.chart"
-          [labels]="chartOptions.labels"
-          [responsive]="chartOptions.responsive"
-        ></apx-chart> -->
+    
       </ion-card-header>
     </ion-card>
 
-    <ion-card *ngFor="let ramo of ramos; trackBy:trackRamos">
+    <!-- <ion-card *ngFor="let ramo of ramos; trackBy:trackRamos">
 
       <ion-card-header class="class-title">{{ramo.nombre}}</ion-card-header>
 
@@ -25,10 +19,6 @@
         <p class="txt-class">Total Asistencia: <span style="color: #F8B31C"><b>
               {{(ramo.clasesAsistidas/ramo.clasesRealizadas) | percent}} </b></span></p>
 
-
-        <!-- Default Progressbar with 50 percent -->
-
-        <!-- revisar valores de rangos en ts -->
 
         <div
           *ngIf="((ramo.clasesAsistidas/ramo.clasesRealizadas) >= amarillo) && ((ramo.clasesAsistidas/ramo.clasesRealizadas) < verde)">
@@ -45,8 +35,11 @@
           <ion-progress-bar [value]="ramo.clasesAsistidas/ramo.clasesRealizadas" color="danger"></ion-progress-bar>
         </div>
       </div>
-    </ion-card>
+    </ion-card> -->
+    <app-listar></app-listar>
+    <app-agregar></app-agregar>
+    <app-modificar></app-modificar>
 
-    <!-- <ion-button #button>Lovely Button</ion-button> -->
+
   </div>
 </ion-content>

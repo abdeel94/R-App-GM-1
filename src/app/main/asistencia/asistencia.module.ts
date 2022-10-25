@@ -9,6 +9,9 @@ import { AsistenciaPageRoutingModule } from './asistencia-routing.module';
 import { AsistenciaPage } from './asistencia.page';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { UserDataComponent } from 'src/app/components/user-data/user-data.component';
+import { AgregarComponent } from 'src/app/components/crud/agregar/agregar.component';
+import { ModificarComponent } from 'src/app/components/crud/modificar/modificar.component';
+import { ListarComponent } from 'src/app/components/crud/listar/listar.component';
 
 @NgModule({
   imports: [
@@ -16,8 +19,8 @@ import { UserDataComponent } from 'src/app/components/user-data/user-data.compon
     FormsModule,
     IonicModule,
     AsistenciaPageRoutingModule,
-   NgApexchartsModule
+   NgApexchartsModule,
   ],
-  declarations: [AsistenciaPage, UserDataComponent]
+  declarations: [AsistenciaPage, UserDataComponent,AgregarComponent,ModificarComponent,ListarComponent],
 })
 export class AsistenciaPageModule {}
