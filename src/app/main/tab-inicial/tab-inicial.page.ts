@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class TabInicialPage {
   dataName: any;
   idUser: any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) {
+  constructor(private activeroute: ActivatedRoute, private router: Router, private toastController:ToastController) {
     this.activeroute.queryParams.subscribe(params => {
 
       if (this.router.getCurrentNavigation().extras.state) {
@@ -33,7 +34,17 @@ export class TabInicialPage {
   }
 
   ngOnInit() {
+    this.presentToast('hola');
+    window.location.reload;
     this.recuperarNombre();
+  }
+
+  async presentToast(msg: string, duracion?: number) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: duracion ? duracion : 1500,
+    });
+    toast.present();
   }
 
 }
