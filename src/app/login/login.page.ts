@@ -75,7 +75,8 @@ export class LoginPage implements OnInit {
             localStorage.setItem('ingresado', 'true')
             localStorage.setItem('nombreUsuario', JSON.stringify(nombreUsuario))
             localStorage.setItem('idUsuario', JSON.stringify(idUsuario))
-            this.router.navigate(['/tab-inicial'], navigationExtras);
+            this.router.navigate(['/tab-inicial'], navigationExtras)
+            // .then(() => {window.location.reload();});
 
           } else {
             this.presentToast("Contraseña incorrecta.", 1200)
