@@ -34,7 +34,7 @@ export class TabInicialPage {
   }
 
   ngOnInit() {
-    this.presentToast('hola');
+    // this.presentToast('hola');
     window.location.reload;
     this.recuperarNombre();
   }

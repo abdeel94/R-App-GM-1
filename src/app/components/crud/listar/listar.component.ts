@@ -11,10 +11,12 @@ import { DbserviceService } from 'src/app/services/dbservice.service';
 export class ListarComponent implements OnInit {
 
   asistencias: Asistencia[];
+  idUser: any;
 
   constructor(private serviceDB:DbserviceService) { }
 
   ngOnInit() {
+    this.recuperarId();
     this.serviceDB.dbState().subscribe((res)=>{
       if(res){
         this.serviceDB.fetchAsistencias().subscribe(item=>{
@@ -34,6 +36,11 @@ export class ListarComponent implements OnInit {
   eliminar(item) {
     this.serviceDB.deleteAsistencia(item.id);
     this.serviceDB.presentToast("Asistencia Eliminada");
+  }
+
+  recuperarId() {
+    var id = JSON.parse(localStorage.getItem('idUsuario'));
+    this.idUser = id.id;
   }
 
 }
