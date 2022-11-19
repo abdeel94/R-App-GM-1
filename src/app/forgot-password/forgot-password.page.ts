@@ -30,10 +30,9 @@ export class ForgotPasswordPage implements OnInit {
 
   async openEmail(){
     const email: EmailComposerOptions = {
-      to: 'abdeel4991@hotmail.com',
-      cc: 'ab.morales@duocuc.cl',
-      subject: 'prueba',
-      body: 'Prueba email composer'+this.var1+'fin',
+      to: 'ab.morales@duocuc.cl',
+      subject: 'Recuperación de contraseña',
+      body: 'Su contraseña es 123456.',
     };
     await this.emailComposer.open(email);
   }

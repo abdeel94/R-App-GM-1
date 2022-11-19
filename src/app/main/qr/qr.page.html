@@ -26,7 +26,7 @@
           <h1>Datos Scanneados</h1>
         </div>
         <div class="ion-text-left">
-          <p>Información QR: </p>
+          <!-- <p>Información QR: </p> -->
 
           <a *ngIf="data.includes('http')" [href]="data">{{ data }}</a>
           <p *ngIf="!data.includes('http')">Id asignatura: {{ idAsignatura }}</p>
@@ -34,6 +34,12 @@
           <p *ngIf="!data.includes('http')">Asignatura: {{ asignatura }}</p>
           <p *ngIf="!data.includes('http')">Docente: {{ docente }}</p>
           <p *ngIf="!data.includes('http')">Correo: {{ correo }}</p>
+
+          <div class="ion-text-center">
+            <ion-button color="warning" size="large" (click)="openEmail()" fill="solid">
+              Enviar correo
+            </ion-button>
+          </div>
 
 
         </div>

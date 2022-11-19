@@ -5,6 +5,8 @@ import { Animation, AnimationController } from '@ionic/angular';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { DbserviceService } from 'src/app/services/dbservice.service';
 import { Asistencia } from 'src/app/clases/asistencia';
+import { EmailComposer, EmailComposerOptions } from '@awesome-cordova-plugins/email-composer/ngx';
+
 
 @Component({
   selector: 'app-qr',
@@ -21,6 +23,7 @@ export class QrPage implements OnInit {
     private barcodeScanner: BarcodeScanner,
     private router: Router,
     private dbservice: DbserviceService,
+    private emailComposer: EmailComposer,
     
   ) { }
 
@@ -95,6 +98,23 @@ export class QrPage implements OnInit {
   recuperaridAlumno() {
     var id = JSON.parse(localStorage.getItem('idUsuario'));
     this.idAlumno = id.id;
+  }
+
+  hasAccount = false;
+
+  async checkAccount(){
+    this.hasAccount = await this.emailComposer.hasAccount();
+  }
+
+  async openEmail(){
+    const email: EmailComposerOptions = {
+      to: this.correo,
+      cc: 'ab.morales@duocuc.cl',
+      subject: 'Asistencia '+ this.asignatura+ ' '+this.fechaActual,
+      body: 'Prueba '+ this.docente ,
+    };
+    await this.emailComposer.open(email);
+    this.dbservice.presentToast("Correo de asistencia enviado.");
   }
 
 }
