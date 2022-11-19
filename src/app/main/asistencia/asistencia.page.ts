@@ -91,11 +91,6 @@ export class AsistenciaPage implements OnInit {
 
   }
 
-
-
-
-
-
   ramos: any[] = [
     { id: 101, nombre: "Matemáticas", clasesRealizadas: 12, clasesAsistidas: 11 },
     { id: 102, nombre: "Programación", clasesRealizadas: 10, clasesAsistidas: 10 },
@@ -139,32 +134,6 @@ export class AsistenciaPage implements OnInit {
 
   }
 
-
-  // public animateButton() {
-  //   const animation = this.animationCtrl
-  //     .create()
-  //     .addElement(this.button.nativeElement)
-  //     .duration(1000)
-  //     .iterations(Infinity)
-  //     .fromTo("color", "#ffffff", "#ffb800")
-
-  //   animation.play()
-  // }
-
-  // public pulseButton() {
-  //   const animation = this.animationCtrl
-  //     .create()
-  //     .addElement(this.button.nativeElement)
-  //     .duration(1500)
-  //     .iterations(Infinity)
-  //     .keyframes([
-  //       { offset: 0, boxShadow: "0 0 0 0 rgba(44, 103, 255, 0.4)" },
-  //       { offset: 0.7, boxShadow: "0 0 0 10px rgba(44, 103, 255, 0)" },
-  //       { offset: 1, boxShadow: "0 0 0 0 rgba(44, 103, 255, 0)" }
-  //     ]);
-
-  //   // animation.play();
-  // }
 
   public slideCard() {
 

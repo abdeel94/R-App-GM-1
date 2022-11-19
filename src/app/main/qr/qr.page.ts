@@ -32,7 +32,7 @@ export class QrPage implements OnInit {
 
   fechaActual: any;
   idAlumno: any;
-  ramo: any;
+  // ramo: any;
   jsonData: any;
 
   //variables qr 
@@ -75,7 +75,7 @@ export class QrPage implements OnInit {
       this.asignatura = this.jsonData.asignatura;
       this.docente = this.jsonData.docente;
       this.correo = this.jsonData.correo;
-      this.ramo = barcodeData.text;
+      // this.ramo = barcodeData.text;
       this.guardar();
     }).catch(err => {
       console.log('Error', err);
