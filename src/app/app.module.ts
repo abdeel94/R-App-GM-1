@@ -8,11 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
+
+
 
 @NgModule({
   declarations: [AppComponent],
   imports: [HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite, EmailComposer],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

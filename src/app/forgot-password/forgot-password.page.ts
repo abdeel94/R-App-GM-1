@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { EmailComposer, EmailComposerOptions } from '@awesome-cordova-plugins/email-composer/ngx';
 
 
 @Component({
@@ -9,9 +10,38 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class ForgotPasswordPage implements OnInit {
 
-  constructor() { }
+  hasAccount = false;
+  var1= 'prueba var 1';
+
+  constructor(private emailComposer: EmailComposer,private router: Router) { }
 
   ngOnInit() {
+  }
+
+  // this.emailComposer.isAvailable().then((available: boolean) =>{
+  //   if(available) {
+  //     sendMail();
+  //   }
+  //  });
+
+  async checkAccount(){
+    this.hasAccount = await this.emailComposer.hasAccount();
+  }
+
+  async openEmail(){
+    const email: EmailComposerOptions = {
+      to: 'abdeel4991@hotmail.com',
+      cc: 'ab.morales@duocuc.cl',
+      subject: 'prueba',
+      body: 'Prueba email composer'+this.var1+'fin',
+    };
+    await this.emailComposer.open(email);
+  }
+
+  salir() {
+    localStorage.setItem('ingresado','false')
+    localStorage.removeItem('ingresado')
+    this.router.navigate(['/login'])
   }
 
 }
