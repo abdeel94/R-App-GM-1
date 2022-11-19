@@ -33,6 +33,16 @@ export class QrPage implements OnInit {
   fechaActual: any;
   idAlumno: any;
   ramo: any;
+  jsonData: any;
+
+  //variables qr 
+  
+  idAsignatura: any;
+  seccion: any;
+  asignatura: any;
+  docente: any;
+  correo: any;
+
 
   ngAfterViewInit() {
     this.slideCard();
@@ -59,6 +69,12 @@ export class QrPage implements OnInit {
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
       this.data = barcodeData.text;
+      this.jsonData = JSON.parse(this.data);
+      this.idAsignatura = this.jsonData.idAsignatura;
+      this.seccion = this.jsonData.seccion;
+      this.asignatura = this.jsonData.asignatura;
+      this.docente = this.jsonData.docente;
+      this.correo = this.jsonData.correo;
       this.ramo = barcodeData.text;
       this.guardar();
     }).catch(err => {
@@ -73,7 +89,7 @@ export class QrPage implements OnInit {
   }
 
   guardar(){
-    this.dbservice.addAsistencia(this.idAlumno,this.ramo,this.fechaActual);
+    this.dbservice.addAsistencia(this.idAlumno,this.asignatura,this.fechaActual);
     this.dbservice.presentToast("Asistencia Agregada")  }
 
   recuperaridAlumno() {
