@@ -35,25 +35,6 @@ export class LoginPage implements OnInit {
     localStorage.removeItem('ingresado'); // esto es para evitar que se pueda entrar con el back de android
   }
 
-  // ingresar() {
-  //   //verifico campos vacíos
-  //   if (this.validateModel(this.user)) {
-  //     this.presentToast("Bienvenido " + this.user.Usuario);
-  //     // Se declara e instancia un elemento de tipo NavigationExtras
-  //     let navigationExtras: NavigationExtras = {
-  //       ///// modificar desde ahi
-  //       state: {
-  //         user: this.user // Al estado se asignamos un objeto con clave y valor
-  //       }
-  //     };
-  //     this.router.navigate(['tab-inicial'], navigationExtras); // navegamos hacia el Home y enviamos información adicional
-  //   } else {
-  //     if (this.field == "Contrasena") { this.presentToast("Debe ingresar: Contraseña.", 1200) }
-  //     else { this.presentToast("Debe ingresar: " + this.field + ".", 1200) }
-  //   }
-
-
-  // }
 
   nombre: any;
   id: any;

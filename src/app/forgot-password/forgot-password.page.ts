@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { EmailComposer, EmailComposerOptions } from '@awesome-cordova-plugins/email-composer/ngx';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -10,10 +11,13 @@ import { EmailComposer, EmailComposerOptions } from '@awesome-cordova-plugins/em
 })
 export class ForgotPasswordPage implements OnInit {
 
+  correo = {
+    Correo: "",
+  };
   hasAccount = false;
-  var1= 'prueba var 1';
+  field: String = "";
 
-  constructor(private emailComposer: EmailComposer,private router: Router) { }
+  constructor(private emailComposer: EmailComposer,private router: Router,public toastController: ToastController,) { }
 
   ngOnInit() {
   }
@@ -29,12 +33,17 @@ export class ForgotPasswordPage implements OnInit {
   }
 
   async openEmail(){
+    if (this.validateModel(this.correo)) {
     const email: EmailComposerOptions = {
-      to: 'ab.morales@duocuc.cl',
+      to: this.correo+'@duocuc.cl',
       subject: 'Recuperación de contraseña',
       body: 'Su contraseña es 123456.',
     };
     await this.emailComposer.open(email);
+    this.presentToast("Correo de asistencia enviado.");
+  }else {
+    this.presentToast("Contraseña incorrecta.", 1200)
+  }
   }
 
   salir() {
@@ -43,5 +52,24 @@ export class ForgotPasswordPage implements OnInit {
     this.router.navigate(['/login'])
   }
 
+  validateModel(model: any) {
+    //Recorrer todas las entradas que me entrega el Object entries y obtengo su clave-valor
+    for (var [key, value] of Object.entries(model)) {
+      //si el value está vacio retorno falso y guardo el nombre del campo para el error
+      if (value == "") {
+        this.field = key;
+        return false;
+      }
+    }
+    return true;
+  }
+
+  async presentToast(msg: string, duracion?: number) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: duracion ? duracion : 1500,
+    });
+    toast.present();
+  }
 }
 

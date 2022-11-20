@@ -24,13 +24,14 @@ export class QrPage implements OnInit {
     private router: Router,
     private dbservice: DbserviceService,
     private emailComposer: EmailComposer,
-    
+
   ) { }
 
   ngOnInit() {
     this.recuperaridAlumno();
     this.fechaActual = new Date();
     this.fechaActual = this.fechaActual.toLocaleDateString();
+    this.recuperarNombre();
   }
 
   fechaActual: any;
@@ -39,12 +40,14 @@ export class QrPage implements OnInit {
   jsonData: any;
 
   //variables qr 
-  
+
   idAsignatura: any;
   seccion: any;
   asignatura: any;
   docente: any;
   correo: any;
+  user1: any;
+  dataName: any;
 
 
   ngAfterViewInit() {
@@ -86,14 +89,15 @@ export class QrPage implements OnInit {
   }
 
   salir() {
-    localStorage.setItem('ingresado','false')
+    localStorage.setItem('ingresado', 'false')
     localStorage.removeItem('ingresado')
     this.router.navigate(['/login'])
   }
 
-  guardar(){
-    this.dbservice.addAsistencia(this.idAlumno,this.asignatura,this.fechaActual);
-    this.dbservice.presentToast("Asistencia Agregada")  }
+  guardar() {
+    this.dbservice.addAsistencia(this.idAlumno, this.asignatura, this.fechaActual);
+    this.dbservice.presentToast("Asistencia Agregada")
+  }
 
   recuperaridAlumno() {
     var id = JSON.parse(localStorage.getItem('idUsuario'));
@@ -102,19 +106,45 @@ export class QrPage implements OnInit {
 
   hasAccount = false;
 
-  async checkAccount(){
+  async checkAccount() {
     this.hasAccount = await this.emailComposer.hasAccount();
   }
 
-  async openEmail(){
+  async openEmail() {
     const email: EmailComposerOptions = {
       to: this.correo,
       cc: 'ab.morales@duocuc.cl',
-      subject: 'Asistencia '+ this.asignatura+ ' '+this.fechaActual,
-      body: 'Prueba '+ this.docente ,
+      subject: 'Asistencia ' + this.asignatura + ' ' + this.fechaActual,
+      body: ' Nombre Alumno: ' + this.dataName +'<br>'+
+        ' Asignatura: ' + this.idAsignatura +'<br>'+
+        ' Sección: ' + this.seccion +'<br>'+
+        ' Docente: ' + this.docente +'<br>'+
+        ' Fecha: ' + this.fechaActual,
+      isHtml:true,
     };
     await this.emailComposer.open(email);
     this.dbservice.presentToast("Correo de asistencia enviado.");
+  }
+
+  words: any;
+
+  recuperarNombre() {
+    var user1 = JSON.parse(localStorage.getItem('nombreUsuario'));
+    this.dataName = user1.nombre;
+    // this.dataName = this.dataName.toLowerCase();
+
+    // this.words = this.dataName.split(" ");
+    // this.words.map((word) => {
+    //   return word[0].toUpperCase() + word.substring(1);
+    // }).join(" ");
+
+    //  this.words = this.dataName.split(" ");
+
+    // for (let i = 0; i < this.words.length; i++) {
+    //   this.words[i] = this.words[i][0].toUpperCase() + this.words[i].substr(1);
+    // }
+    // this.words.join(" ");
+    // this.dataName = this.dataName.split(" ")[0];
   }
 
 }
