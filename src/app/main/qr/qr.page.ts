@@ -32,6 +32,7 @@ export class QrPage implements OnInit {
     this.fechaActual = new Date();
     this.fechaActual = this.fechaActual.toLocaleDateString();
     this.recuperarNombre();
+    this.recuperarUserAlumno()
   }
 
   fechaActual: any;
@@ -48,6 +49,7 @@ export class QrPage implements OnInit {
   correo: any;
   user1: any;
   dataName: any;
+  userName: any;
 
 
   ngAfterViewInit() {
@@ -104,6 +106,11 @@ export class QrPage implements OnInit {
     this.idAlumno = id.id;
   }
 
+  recuperarUserAlumno() {
+    var username = JSON.parse(localStorage.getItem('username'));
+    this.userName = username.username;
+  }
+
   hasAccount = false;
 
   async checkAccount() {
@@ -113,11 +120,11 @@ export class QrPage implements OnInit {
   async openEmail() {
     const email: EmailComposerOptions = {
       to: this.correo,
-      cc: 'ab.morales@duocuc.cl',
+      cc: this.userName+'@duocuc.cl',
       subject: 'Asistencia ' + this.asignatura + ' ' + this.fechaActual,
       body: ' Nombre Alumno: ' + this.dataName +'<br>'+
-        ' Asignatura: ' + this.idAsignatura +'<br>'+
-        ' Sección: ' + this.seccion +'<br>'+
+        ' Asignatura: ' + this.asignatura +'<br>'+
+        ' Sección: ' +this.idAsignatura+'-'+this.seccion +'<br>'+
         ' Docente: ' + this.docente +'<br>'+
         ' Fecha: ' + this.fechaActual,
       isHtml:true,

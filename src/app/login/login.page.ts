@@ -38,6 +38,7 @@ export class LoginPage implements OnInit {
 
   nombre: any;
   id: any;
+  username: any;
 
   guardar() {
     if (this.validateModel(this.user)) {
@@ -50,12 +51,15 @@ export class LoginPage implements OnInit {
         if (this.user.Usuario == this.alumno[i].username) {
           this.nombre = this.alumno[i].nombre;
           this.id = this.alumno[i].id;
+          this.username = this.alumno[i].username;
           if (this.user.Contrasena == this.alumno[i].password) {
             var nombreUsuario = { nombre: this.nombre }
             var idUsuario = { id: this.id }
+            var username = {username: this.username}
             localStorage.setItem('ingresado', 'true')
             localStorage.setItem('nombreUsuario', JSON.stringify(nombreUsuario))
             localStorage.setItem('idUsuario', JSON.stringify(idUsuario))
+            localStorage.setItem('username', JSON.stringify(username))
             this.router.navigate(['/tab-inicial'], navigationExtras)
             .then(() => {window.location.reload();});
 

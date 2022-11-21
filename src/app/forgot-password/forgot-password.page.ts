@@ -35,7 +35,7 @@ export class ForgotPasswordPage implements OnInit {
   async openEmail(){
     if (this.validateModel(this.correo)) {
     const email: EmailComposerOptions = {
-      to: this.correo+'@duocuc.cl',
+      to: this.correo.Correo+'@duocuc.cl',
       subject: 'Recuperación de contraseña',
       body: 'Su contraseña es 123456.',
     };
