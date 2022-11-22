@@ -9,13 +9,15 @@ import { HorarioPageRoutingModule } from './horario-routing.module';
 import { HorarioPage } from './horario.page';
 
 import { UserDataComponent } from 'src/app/components/user-data/user-data.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HorarioPageRoutingModule
+    HorarioPageRoutingModule,
+    NgxQRCodeModule
   ],
   declarations: [HorarioPage, UserDataComponent]
 })

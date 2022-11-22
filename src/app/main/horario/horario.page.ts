@@ -42,6 +42,10 @@ export class HorarioPage implements OnInit {
     docente:"",
     correo: "",
   };
+
+  title = 'app';
+  elementType = 'url';
+  value = 'Techiediaries';
   
   limpiar(){
     //recorrer todas las entradas de Object entries y obtener su clave y valor
