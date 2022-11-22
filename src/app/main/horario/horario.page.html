@@ -1,75 +1,48 @@
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <div #slidingCard>
+<ion-content #slidingCard [fullscreen]="true">
+  
   <ion-card>
     <ion-card-header class="ion-text-center">
-      <ion-title>Horario</ion-title>
-      <!-- <app-user-data></app-user-data> -->
-      <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
-        Adipisci?</p>
+      <ion-title>Generar QR</ion-title>
     </ion-card-header>
   </ion-card>
-  <div class="tab-group">
-    <div class="tab">
-      <input type="checkbox" id="tab-one" name="tabs">
-      <label for="tab-one"><p class="txt-head">Lunes</p></label>
-      <div class="tab-content">
-        <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
-          Adipisci?</p>
-      </div>
-    </div>
-  </div>
-  <div class="tab-group">
-    <div class="tab">
-      <input type="checkbox" id="tab-two" name="tabs">
-      <label for="tab-two"><p class="txt-head">Martes</p></label>
-      <div class="tab-content">
-        <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
-          Adipisci?</p>
-      </div>
-    </div>
-  </div>
-  <div class="tab-group">
-    <div class="tab">
-      <input type="checkbox" id="tab-three" name="tabs">
-      <label for="tab-three"><p class="txt-head">Miercoles</p></label>
-      <div class="tab-content">
-        <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
-          Adipisci?</p>
-      </div>
-    </div>
-  </div>
-  <div class="tab-group">
-    <div class="tab">
-      <input type="checkbox" id="tab-for" name="tabs">
-      <label for="tab-for"><p class="txt-head">Jueves</p></label>
-      <div class="tab-content">
-        <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
-          Adipisci?</p>
-      </div>
-    </div>
-  </div>
-  <div class="tab-group">
-    <div class="tab">
-      <input type="checkbox" id="tab-five" name="tabs">
-      <label for="tab-five"><p class="txt-head">Viernes</p></label>
-      <div class="tab-content">
-        <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
-          Adipisci?</p>
-      </div>
-    </div>
-  </div>
-  <div class="tab-group">
-    <div class="tab">
-      <input type="checkbox" id="tab-six" name="tabs">
-      <label for="tab-six"><p class="txt-head">Sábado</p></label>
-      <div class="tab-content">
-        <p class="txt-head">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, distinctio beatae?
-          Adipisci?</p>
-      </div>
-    </div>
-  </div>
+  
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-label>Id Asignatura:</ion-label>
+        <ion-input [(ngModel)]="dato.idAsignatura"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Sección:</ion-label>
+        <ion-input [(ngModel)]="dato.seccion"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Asignatura:</ion-label>
+        <ion-input [(ngModel)]="dato.asignatura"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Docente</ion-label>
+        <ion-input [(ngModel)]="dato.docente"></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-label>Correo</ion-label>
+        <ion-input [(ngModel)]="dato.correo"></ion-input>
+      </ion-item>
+ 
+      <div class="ion-text-center">
+        <ion-button (click)="mostrar()" color="warning" fill="solid">
+          Enviar
+        </ion-button>
+      </div>
 
-</div>
+      <p>{{datoJson}}</p>
+
+    </ion-list>
+  </ion-card>
+
 </ion-content>

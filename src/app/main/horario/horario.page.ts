@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, ElementRef, AfterViewInit } from '@angular/core';
-import { Animation, AnimationController } from '@ionic/angular';
+import { ToastController, Animation, AnimationController } from '@ionic/angular';
 
 
 @Component({
@@ -11,7 +11,7 @@ export class HorarioPage implements OnInit {
 
   @ViewChild("slidingCard", { read: ElementRef, static: true }) slidingCard: ElementRef;
 
-  constructor(private animationCtrl: AnimationController) { }
+  constructor(private animationCtrl: AnimationController, public toastController: ToastController,) { }
 
   ngOnInit() {
   }
@@ -33,6 +33,39 @@ export class HorarioPage implements OnInit {
       .fromTo('opacity', '0', '1');
     animationA.play();
   }
+  datoJson:any;
 
+  dato: any={
+    idAsignatura:"",
+    seccion:"",
+    asignatura:"",
+    docente:"",
+    correo: "",
+  };
+  
+  limpiar(){
+    //recorrer todas las entradas de Object entries y obtener su clave y valor
+    for(var [key,value] of Object.entries(this.dato)){
+      Object.defineProperty(this.dato,key,{value:""})
+    }
+  }
+
+  mostrar(){
+    if (this.dato.idAsignatura!="" && this.dato.seccion!=""  && this.dato.asignatura!=""  && this.dato.docente!=""  && this.dato.correo!="") {
+      this.presentToast("correcto",1200)
+      this.datoJson = "{\"idAsignatura\": \""+this.dato.idAsignatura+"\", \"seccion\": \""+this.dato.seccion+"\", \"asignatura\": \""+this.dato.asignatura+"\", \"docente\": \""+this.dato.docente+"\", \"correo\": \""+this.dato.correo+"\" } "
+    } else {
+      this.presentToast("Ingrese todos los datos por favor.",1200)
+      this.limpiar();
+    }
+  }
+
+  async presentToast(msg: string, duracion?: number) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: duracion ? duracion : 1500,
+    });
+    toast.present();
+  }
 
 }
