@@ -42,9 +42,12 @@
       <!-- <p>{{datoJson}}</p> -->
 
       <div class="ion-text-center ion-padding-bottom" >
-      <ngx-qrcode [elementType]="elementType" [value]="datoJson" cssClass="aclass" errorCorrectionLevel="L">
+      <ngx-qrcode [elementType]="elementType" [value]="datoJson" cssClass="coolQRCode" errorCorrectionLevel="L">
       </ngx-qrcode>
     </div>
+    <div class="ion-text-center ion-padding">
+    <ion-button (click)="downloadQRCode()" color="warning">Download QRCode</ion-button>
+  </div>
     </ion-list>
   </ion-card>
 
