@@ -1,6 +1,6 @@
 <ion-card>
   <div class="ion-padding-horizontal ion-padding-bottom">
-  <h3 class="ion-text-center">Listar Asistencia {{ idUser }}</h3>
+  <h3 class="ion-text-center">Lista de Asistencias</h3>
 
   <ion-list>
     <ion-item-sliding *ngFor="let a of asistencias">
@@ -10,7 +10,6 @@
             <!-- <img src="assets/icon/favicon.png"> -->
           <!-- </ion-avatar> -->
           <ion-label>
-
             <h2>{{a.ramo}}</h2>
             <p style="word-wrap: break-word; white-space: normal;">Número Asistencia: {{a.id}}</p>
             <p style="word-wrap: break-word; white-space: normal;">Id Alumno: {{a.idAlumno}}</p>

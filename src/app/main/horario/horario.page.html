@@ -10,12 +10,12 @@
     <ion-list>
       <ion-item>
         <ion-label>Id Asignatura:</ion-label>
-        <ion-input [(ngModel)]="dato.idAsignatura"></ion-input>
+        <ion-input maxlength="7" [(ngModel)]="dato.idAsignatura"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Sección:</ion-label>
-        <ion-input [(ngModel)]="dato.seccion"></ion-input>
+        <ion-input maxlength="4" [(ngModel)]="dato.seccion"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -24,30 +24,31 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Docente</ion-label>
+        <ion-label>Docente:</ion-label>
         <ion-input [(ngModel)]="dato.docente"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Correo</ion-label>
+        <ion-label>Correo:</ion-label>
         <ion-input [(ngModel)]="dato.correo"></ion-input>
       </ion-item>
 
-      <div class="ion-text-center ion-padding">
+      <div class="ion-text-center ion-padding-top">
         <ion-button (click)="mostrar()" color="warning" fill="solid">
           Enviar
         </ion-button>
       </div>
 
-      <!-- <p>{{datoJson}}</p> -->
-
-      <div class="ion-text-center ion-padding-bottom" >
-      <ngx-qrcode [elementType]="elementType" [value]="datoJson" cssClass="coolQRCode" errorCorrectionLevel="L">
-      </ngx-qrcode>
-    </div>
-    <div class="ion-text-center ion-padding">
-    <ion-button (click)="downloadQRCode()" color="warning">Download QRCode</ion-button>
-  </div>
+      <div class="ion-padding-horizontal ion-text-justify">
+        <p>{{datoJson}}</p>
+      </div>
+      <div class="ion-text-center ion-padding-bottom">
+        <ngx-qrcode [elementType]="elementType" [value]="datoJson" cssClass="coolQRCode" errorCorrectionLevel="H">
+        </ngx-qrcode>
+      </div>
+      <!-- <div class="ion-text-center ion-padding">
+    <ion-button (click)="openEmail()" color="warning">Download QRCode</ion-button>
+  </div> -->
     </ion-list>
   </ion-card>
 

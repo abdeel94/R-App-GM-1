@@ -120,14 +120,14 @@ export class QrPage implements OnInit {
   async openEmail() {
     const email: EmailComposerOptions = {
       to: this.correo,
-      cc: this.userName+'@duocuc.cl',
+      cc: this.userName + '@duocuc.cl',
       subject: 'Asistencia ' + this.asignatura + ' ' + this.fechaActual,
-      body: ' Nombre Alumno: ' + this.dataName +'<br>'+
-        ' Asignatura: ' + this.asignatura +'<br>'+
-        ' Sección: ' +this.idAsignatura+'-'+this.seccion +'<br>'+
-        ' Docente: ' + this.docente +'<br>'+
+      body: ' Nombre Alumno: ' + this.dataName + '<br>' +
+        ' Asignatura: ' + this.asignatura + '<br>' +
+        ' Sección: ' + this.idAsignatura + '-' + this.seccion + '<br>' +
+        ' Docente: ' + this.docente + '<br>' +
         ' Fecha: ' + this.fechaActual,
-      isHtml:true,
+      isHtml: true,
     };
     await this.emailComposer.open(email);
     this.dbservice.presentToast("Correo de asistencia enviado.");

@@ -19,33 +19,34 @@
     </ion-card>
 
 
-    <div  *ngIf="(data != null)">
-    <ion-card *ngIf="(data != &quot;&quot;)">
-      <div class="ion-padding-horizontal ion-padding-bottom">
-        <div class="ion-text-center">
-          <h1>Datos Scanneados</h1>
-        </div>
-        <div class="ion-text-left">
-          <!-- <p>Información QR: </p> -->
-
-          <a *ngIf="data.includes('http')" [href]="data">{{ data }}</a>
-          <p *ngIf="!data.includes('http')">Id asignatura: {{ idAsignatura }}</p>
-          <p *ngIf="!data.includes('http')">Sección: {{ seccion }}</p>
-          <p *ngIf="!data.includes('http')">Asignatura: {{ asignatura }}</p>
-          <p *ngIf="!data.includes('http')">Docente: {{ docente }}</p>
-          <p *ngIf="!data.includes('http')">Correo: {{ correo }}</p>
-
+    <div *ngIf="(data != null)">
+      <ion-card *ngIf="(data != &quot;&quot;)">
+        <div class="ion-padding-horizontal ion-padding-bottom">
           <div class="ion-text-center">
-            <ion-button color="warning" size="large" (click)="openEmail()" fill="solid">
-              Enviar correo
-            </ion-button>
+            <h1>Datos Scanneados</h1>
           </div>
+          <div class="ion-text-left">
+            <!-- <p>Información QR: </p> -->
+
+            <!-- <a *ngIf="data.includes('http')" [href]="data">{{ data }}</a> -->
+            <p *ngIf="data.includes('idAsignatura')">Id asignatura: {{ idAsignatura }}</p>
+            <p *ngIf="data.includes('idAsignatura')">Sección: {{ seccion }}</p>
+            <p *ngIf="data.includes('idAsignatura')">Asignatura: {{ asignatura }}</p>
+            <p *ngIf="data.includes('idAsignatura')">Docente: {{ docente }}</p>
+            <p *ngIf="data.includes('idAsignatura')">Correo: {{ correo }}</p>
+            <p *ngIf="!data.includes('idAsignatura')">Por favor, scannee un código válido.</p>
+
+            <div *ngIf="data.includes('idAsignatura')" class="ion-text-center">
+              <ion-button color="warning" size="large" (click)="openEmail()" fill="solid">
+                Enviar correo
+              </ion-button>
+            </div>
 
 
+          </div>
         </div>
-      </div>
-    </ion-card>
-  </div>
+      </ion-card>
+    </div>
   </div>
 
   <div class="ion-text-center">
