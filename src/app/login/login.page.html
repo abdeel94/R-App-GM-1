@@ -3,7 +3,7 @@
 <ion-content>
   <div class="content-top">
   <ion-card-header>
-    <ion-title>Duoc<span style="color: #FFFFFF">UC</span>
+    <ion-title id="titulo">Registr<span style="color: #FFFFFF">App</span>
       <ion-avatar>
         <img src="assets/img/logo_blanco.png" />
       </ion-avatar>
@@ -27,7 +27,7 @@
   </ion-item>
   <ion-row>
     <ion-col>
-      <ion-button expand="full" (click)="guardar()">Ingresar</ion-button>
+      <ion-button expand="full" (click)="guardar()" color="warning">Ingresar</ion-button>
       <div class="ion-text-center ion-padding-top">
         <a [routerLink]="['/forgot-password']">¿Olvidó la contraseña?</a>
       </div>

@@ -21,25 +21,26 @@ ion-card{
   }
 ion-avatar{
     position:fixed;
-    right:0px;
-    top:-20px;
+    right:-15px;
+    top:-15px;
    
 }
 
 ion-title{
+    position: relative;
     font-size: 30px;
     font-weight: bold;
     font-size: 36px;
     color: #ffb800;
+    right: 15px;
 }
 
-ion-button{
-    --background:  #e4b706;
-}
+// ion-button{
+//     --background:  #e4b706;
+// }
 .content-top{
     padding-top: 20px;
 }
-
 
 
 
